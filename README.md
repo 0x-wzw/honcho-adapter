@@ -278,6 +278,59 @@ context = NeuroSwarmBridge.format_for_council_context("alice", obs)
 
 ---
 
+## v2.0 — Memory That Performs Better Over Time
+
+v2.0 adds a suite of improvements that make the memory block smarter as it accumulates observations:
+
+### Deriver v2
+- **Confidence scoring** — each observation gets a 0.0-1.0 confidence score
+- **Contradiction detection** — detects contradictions within a single extraction pass
+- **Entity extraction** — extracts named entities (people, orgs, places, metrics)
+- **Sentiment analysis** — per-observation sentiment (positive, negative, neutral)
+- **Source tracking** — maps observations back to source message IDs
+- **Deduplication** — removes exact duplicates within a single pass
+
+### Dialectic v2
+- **Structured JSON tool protocol** — not fragile `[TOOL:...]` text markers
+- **Response caching** — same query → cached answer (TTL + observation-count invalidation)
+- **Source citations** — answers include which observations support them
+- **Confidence scoring** — per-answer confidence (0.0-1.0)
+- **Answer history** — tracks past answers for follow-up context
+
+### Surprisal Engine v2
+- **Real embedding-based features** — deterministic n-gram hashing (not proxy features)
+- **Incremental fitting** — add observations without rebuilding from scratch
+- **Temporal weighting** — recent observations weighted higher for novelty
+- **Cross-peer analysis** — finds surprising patterns across different peers
+- **Contradiction-aware scoring** — contradictory observations get boosted
+- **Persistence** — save/load forest state to disk
+
+### MemoryEvolutionBridge v2
+- **Embedding-based semantic search** — not just text match
+- **Dedup via semantic similarity** — within same level, configurable threshold
+- **Consolidation** — merges similar observations into higher-level insights
+- **Access-frequency-boosted decay** — frequently accessed memories decay slower
+- **Contradiction detection** — flags contradictory observations across sessions
+- **Temporal weighting** — recent observations score higher
+- **Confidence promotion** — high-confidence deductive observations promoted to explicit
+
+### DeterministicRetrievalBridge v2
+- **Embeddings stored alongside observations** — for semantic retrieval
+- **Peer index** — fast listing of peers with observation counts
+- **Latest retrieval** — get most recent observations for a peer
+
+### NamespaceBridge v2
+- **Search URI support** — `hermes://observations/{peer}/search?q=...`
+
+### NeuroSwarmBridge v2
+- **Contradiction context** — includes contradiction warnings in council context
+- **Confidence indicators** — high/medium tags per observation
+
+### ObliviarchBridge v2
+- **Richer trace metadata** — confidence, contradiction flags, source count
+
+---
+
 ## Repo Structure
 
 ```

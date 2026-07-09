@@ -9,7 +9,7 @@ No Postgres. No server. No AGPL. Just the core reasoning engine:
 
 from __future__ import annotations
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 
 from .deriver import Deriver, DeriverConfig, Observation, ObservationSet
 from .dialectic import DialecticAgent, DialecticConfig
