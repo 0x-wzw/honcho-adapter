@@ -180,21 +180,21 @@ RULES:
 
 OUTPUT FORMAT:
 Return a JSON object with the following keys:
-- "explicit": list of objects, each with "content" (string), "confidence" (float 0-1), "entities" (list of {name, type}), "sentiment" (string)
-- "deductive": list of objects, each with "content" (string), "confidence" (float 0-1), "entities" (list of {name, type}), "sentiment" (string)
+- "explicit": list of objects, each with "content" (string), "confidence" (float 0-1), "entities" (list of {{name, type}}), "sentiment" (string)
+- "deductive": list of objects, each with "content" (string), "confidence" (float 0-1), "entities" (list of {{name, type}}), "sentiment" (string)
 - "contradictions": list of [string, string] pairs where observations contradict each other
 
 Example:
-{
+{{
   "explicit": [
-    {"content": "alice is 25 years old", "confidence": 1.0, "entities": [{"name": "alice", "type": "person"}], "sentiment": "neutral"},
-    {"content": "alice has a dog", "confidence": 0.9, "entities": [{"name": "alice", "type": "person"}], "sentiment": "positive"}
+    {{"content": "alice is 25 years old", "confidence": 1.0, "entities": [{{"name": "alice", "type": "person"}}], "sentiment": "neutral"}},
+    {{"content": "alice has a dog", "confidence": 0.9, "entities": [{{"name": "alice", "type": "person"}}], "sentiment": "positive"}}
   ],
   "deductive": [
-    {"content": "alice completed high school or equivalent", "confidence": 0.7, "entities": [{"name": "alice", "type": "person"}], "sentiment": "neutral"}
+    {{"content": "alice completed high school or equivalent", "confidence": 0.7, "entities": [{{"name": "alice", "type": "person"}}], "sentiment": "neutral"}}
   ],
   "contradictions": []
-}
+}}
 
 {peer_section}
 {messages_section}

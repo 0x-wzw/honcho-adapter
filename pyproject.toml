@@ -1,6 +1,6 @@
 [project]
 name = "honcho-adapter"
-version = "2.0.0"
+version = "2.0.1"
 description = "Honcho's reasoning-first memory, extracted and bridged into your existing Hermes stack"
 authors = [
     {name = "0x-wzw", email = "zehan.teoh@gmail.com"},
